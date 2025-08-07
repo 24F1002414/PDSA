@@ -17,7 +17,29 @@ class Llist:
             while a != None:
                 print(a.data, end= '  ')
                 a = a.next 
-   
+    # insert at start
+    def insert_at_start(self,data):
+        nb = Node(data)
+        nb.next = self.head
+        self.head = nb
+    
+    #insert at end 
+    def insert_at_end(self,data):
+        ne = Node(data)
+        a = self.head
+        while a.next is not None:
+            a = a.next
+        a.next = ne
+    
+    # insert at nth node
+    def insert_at_n(self,data,position):
+        nib = Node(data)
+        a = self.head
+        for i in range (1,position-1):
+            a = a.next 
+        nib.next = a.next
+        a.next = nib
+
 n1 = Node(8)
 l1 = Llist()
 l1.head = n1
@@ -27,4 +49,8 @@ n3 = Node(10)
 n2.next =n3
 n4 = Node(40)
 n3.next = n4
+# l1.insert_at_end(200)
+l1.insert_at_n(45,3)
 l1.traversal()
+l1.sort()
+
